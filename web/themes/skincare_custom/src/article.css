@@ -1,0 +1,188 @@
+/* ==========================================
+   MINIMALIST EDITORIAL SKINCARE DESIGN
+   ========================================== */
+
+.article-container {
+  background-color: #ffffff;
+}
+
+/* 1. Tajuk & Kategori Rapat Kiri */
+.article-title {
+  font-family: 'Poppins', sans-serif !important;
+  color: #0f172a !important;
+  text-align: left !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* 2. Gambar Format Landscape Melintang */
+.article-image-wrapper {
+  width: 100% !important;
+}
+
+.article-image-wrapper img,
+.article-image-wrapper .field--name-field-picture img {
+  width: 100% !important;
+  height: 380px !important; /* Nisbah melintang landscape */
+  object-fit: cover !important; /* Potong gambar automatik tanpa kemek */
+  border-radius: 1.25rem !important;
+  display: block !important;
+  box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* 3. Tipografi Kandungan Body */
+.article-body {
+  font-size: 1.05rem !important;
+  line-height: 1.85 !important;
+  color: #334155 !important;
+  text-align: left !important;
+}
+
+.article-body p {
+  margin-bottom: 1.75rem !important;
+}
+
+.article-body h2, 
+.article-body h3 {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  margin-top: 2.25rem !important;
+  margin-bottom: 0.85rem !important;
+}
+
+/* ==========================================
+   GAYA SENARAI ARTIKEL & BORANG CARIAN (VIEWS)
+   ========================================== */
+
+/* 1. Kemaskini Borang Carian (Exposed Filter) */
+.views-exposed-form {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  margin: 0 auto 3rem auto !important;
+  background-color: #f8fafc !important;
+  padding: 1rem 1.5rem !important;
+  border-radius: 1rem !important;
+  max-width: 500px !important;
+  border: 1px solid #f1f5f9 !important;
+}
+
+.views-exposed-form select,
+.views-exposed-form input[type="text"] {
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 0.6rem !important;
+  padding: 0.5rem 1rem !important;
+  background-color: #ffffff !important;
+  color: #334155 !important;
+  outline: none !important;
+}
+
+.views-exposed-form input[type="submit"] {
+  background-color: #db2777 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border-radius: 0.6rem !important;
+  padding: 0.5rem 1.25rem !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.views-exposed-form input[type="submit"]:hover {
+  background-color: #be185d !important;
+}
+
+/* 2. Susunan Grid 3 Kolum Ditengah */
+.view .view-content {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 2rem !important;
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  padding: 0 1rem !important;
+}
+
+@media (max-width: 768px) {
+  .view .view-content {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 3. Kad Artikel Minimalis */
+.view .views-row {
+  background: #ffffff !important;
+  border-radius: 1.25rem !important;
+  overflow: hidden !important;
+  border: 1px solid #f1f5f9 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.view .views-row:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Susun Gambar Di Atas, Tajuk Di Bawah */
+.view .views-field-field-picture,
+.view .views-field-field-image {
+  order: 1 !important;
+}
+
+.view .views-field-title {
+  order: 2 !important;
+  padding: 1.25rem !important;
+}
+
+/* 4. Format Saiz Gambar */
+.view .views-row img {
+  width: 100% !important;
+  height: 220px !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* 5. Gaya Tajuk Kad */
+.view .views-field-title a {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  text-decoration: none !important;
+  line-height: 1.4 !important;
+}
+
+.view .views-field-title a:hover {
+  color: #db2777 !important;
+}
+
+header .block-page-title-block,
+.region-header .block-page-title-block,
+.region-header h1,
+header h1:not(.article-title) {
+  display: none !important;
+}
+
+/* 2. Paksakan header artikel berfungsi sebagai blok biasa */
+.article-header {
+  display: block !important;
+  width: 100% !important;
+  margin-bottom: 1.75rem !important;
+}
+
+/* 3. Tampilkan Tajuk Artikel Utama (Bold & Besar) di atas gambar */
+.article-title {
+  display: block !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 2.25rem !important; /* Saiz tajuk besar */
+  font-weight: 800 !important; /* Bold tebal */
+  color: #0f172a !important;
+  text-align: left !important;
+  line-height: 1.25 !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 1rem !important;
+  letter-spacing: -0.02em !important;
+}

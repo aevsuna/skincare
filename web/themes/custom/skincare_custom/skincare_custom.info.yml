@@ -1,0 +1,15 @@
+name: 'Skincare Theme'
+type: theme
+'base theme': false
+libraries:
+  - skincare_custom/global
+logo: logo-dark.svg
+description: 'Custom skincare theme'
+core_version_requirement: ^11
+generator: 'mercury:1.0.5'
+regions:
+  content: Content
+  header: Header
+  footer: Footer
+dependencies:
+  - 'cva:cva'

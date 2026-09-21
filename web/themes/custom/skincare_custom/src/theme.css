@@ -1,0 +1,323 @@
+/**
+ * @file theme.css
+ * Corrected theme stylesheet using exact body classes from Inspect Element.
+ */
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.13 0.043 265.132);
+  --card: oklch(0.967 0.003 264.542);
+  --card-foreground: oklch(0.21 0.032 264.665);
+  --primary: oklch(0.547 0.246 262.866);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.9219 0 0);
+  --secondary-foreground: oklch(0.28 0.041 260.329);
+  --muted: oklch(0.967 0.003 264.542);
+  --muted-foreground: oklch(0.13 0.043 265.132);
+  --accent: oklch(0.932 0.032 255.585);
+  --accent-foreground: var(--foreground);
+  --destructive: oklch(0.6368 0.2078 25.3313);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.872 0.009 258.338);
+  --input: oklch(0.872 0.009 258.338);
+  --font-sans: "Outfit", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: "Fira Mono", "Menlo", "Consolas", "Liberation Mono", monospace;
+  --font-body: "Inter", Arial, Helvetica, sans-serif;
+  --radius: 0.5rem;
+  --spacing: 0.25rem;
+  --navbar-height: calc(var(--spacing) * 15);
+
+  @media (min-width: 768px) {
+    --navbar-height: calc(var(--spacing) * 18);
+  }
+}
+
+.dark {
+  --background: oklch(0.13 0.043 265.132);
+  --foreground: oklch(1 0 89.876);
+  --card: oklch(0.208 0.042 266.359);
+  --card-foreground: var(--foreground);
+  --primary: oklch(0.547 0.246 262.866);
+  --primary-foreground: var(--foreground);
+  --secondary: oklch(0.704 0.04 256.993);
+  --secondary-foreground: oklch(0.13 0.043 265.132);
+  --muted: oklch(0.28 0.041 260.329);
+  --muted-foreground: oklch(0.967 0.003 264.542);
+  --accent: oklch(0.932 0.032 255.585);
+  --accent-foreground: oklch(0.13 0.043 265.132);
+  --destructive: oklch(0.6368 0.2078 25.3313);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.373 0.031 259.733);
+  --input: oklch(0.373 0.031 259.733);
+}
+
+/* ==========================================
+   1. HEADER & NAVIGATION ALIGNMENT
+   ========================================== */
+header,
+.region-header,
+.layout-container > header {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 1rem 2rem !important;
+  background-color: #ffffff !important;
+}
+
+.region-header .block-menu h2,
+.region-header h2.block-title,
+.region-header #block-mainnavigation-menu h2 {
+  display: none !important;
+}
+
+.region-header .block-menu,
+.region-header nav {
+  margin-left: auto !important;
+}
+
+header nav ul, 
+.coh-menu-list, 
+.region-header ul,
+.l-header ul {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 28px !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+header nav li, 
+.coh-menu-list li, 
+.region-header li {
+  display: inline-block !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+}
+
+header a,
+.region-header a,
+header nav ul li a {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 0.95rem !important;
+  color: #111827 !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+}
+
+header a:hover,
+.region-header a:hover {
+  color: #2563eb !important;
+}
+
+/* ==========================================
+   2. PRODUCT PAGE LAYOUT (TARGET VIA BODY CLASS)
+   ========================================== */
+body.page-node-type-product main[role="main"],
+body.page-node-type-product article {
+  max-width: 1200px !important;
+  margin: 2rem auto !important;
+  padding: 0 1.5rem !important;
+}
+
+/* Flexbox 2 Kolum untuk Layout Builder Produk */
+body.page-node-type-product article [class*="layout"],
+body.page-node-type-product .layout-builder__section,
+body.page-node-type-product div[class*="twocol"] {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: flex-start !important;
+  gap: 48px !important;
+  width: 100% !important;
+}
+
+/* Pembahagian Kolum 50% - 50% */
+body.page-node-type-product article [class*="layout__region"],
+body.page-node-type-product .layout-builder__section > div,
+body.page-node-type-product div[class*="twocol"] > div {
+  flex: 1 1 50% !important;
+  max-width: 50% !important;
+  width: 50% !important;
+  box-sizing: border-box !important;
+}
+
+/* Gambar Produk */
+body.page-node-type-product article img,
+body.page-node-type-product div[class*="twocol"] img {
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 20px !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08) !important;
+  display: block !important;
+  object-fit: cover !important;
+}
+
+/* Sembunyikan Label "Product Image" */
+body.page-node-type-product [class*="product-image"] .field__label,
+body.page-node-type-product .field--name-field-image .field__label {
+  display: none !important;
+}
+
+/* Tipografi Medan Produk */
+body.page-node-type-product article h1 {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  margin-top: 0 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+body.page-node-type-product article .field__label {
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: #64748b !important;
+  margin-top: 1.25rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+body.page-node-type-product article [class*="price"],
+body.page-node-type-product .field--name-field-price {
+  font-size: 2.25rem !important;
+  font-weight: 800 !important;
+  color: #1e293b !important;
+  margin: 0.75rem 0 !important;
+}
+
+/* ==========================================
+   3. ARTICLE PAGE DETAIL (SINGLE ARTICLE)
+   ========================================== */
+body.page-node-type-article main[role="main"],
+body.page-node-type-article article {
+  max-width: 800px !important;
+  margin: 2rem auto !important;
+  padding: 0 1.5rem !important;
+}
+
+body.page-node-type-article h1 {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 2.25rem !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  margin-bottom: 1.5rem !important;
+}
+
+body.page-node-type-article img {
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 16px !important;
+  margin: 1.5rem 0 !important;
+}
+
+body.page-node-type-article .field--name-body {
+  font-size: 1.05rem !important;
+  line-height: 1.8 !important;
+  color: #334155 !important;
+}
+
+/* ==========================================
+   4. SKIN ARTICLES VIEW (GRID 3 KOLUM)
+   ========================================== */
+.view-skin-articles,
+div[class*="skin-articles"] {
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 1.5rem !important;
+}
+
+.view-skin-articles .view-content,
+div[class*="skin-articles"] .view-content {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important; 
+  gap: 20px !important;
+  width: 100% !important;
+  padding: 20px 0 !important;
+}
+
+.view-skin-articles .views-row,
+div[class*="skin-articles"] .views-row {
+  background: #ffffff !important;
+  border-radius: 16px !important; 
+  overflow: hidden !important;     
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.view-skin-articles .views-row:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+.view-skin-articles .views-row img {
+  width: 100% !important;
+  height: 200px !important;       
+  object-fit: cover !important;
+  border-radius: 16px 16px 0 0 !important;
+  display: block !important;
+}
+
+.view-skin-articles .views-field-title {
+  padding: 16px 20px 20px 20px !important;
+}
+
+.view-skin-articles .views-field-title a {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  color: #111827 !important;
+  line-height: 1.4 !important;
+  text-decoration: none !important;
+}
+
+/* ==========================================
+   5. VIEWS EXPOSED FILTER FORM
+   ========================================== */
+.views-exposed-form {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-bottom: 24px !important;
+  background: #f9fafb !important;
+  padding: 14px 20px !important;
+  border-radius: 12px !important;
+  width: 100% !important;
+}
+
+.views-exposed-form label {
+  display: none !important;
+}
+
+.views-exposed-form select {
+  appearance: none !important;
+  background-color: #f1f3f5 !important;
+  color: #111827 !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  padding: 10px 40px 10px 20px !important;
+  border-radius: 9999px !important;
+  border: 1px solid #e5e7eb !important;
+  cursor: pointer !important;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23111827' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 14px center !important;
+}
+
+.node__submitted {
+  display: none !important;
+}

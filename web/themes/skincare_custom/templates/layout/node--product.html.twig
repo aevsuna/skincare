@@ -1,0 +1,84 @@
+{{ attach_library('skincare_custom/product-style') }}
+
+<article class="product-wrapper">
+  
+  <div class="product-grid">
+    
+    {# KOTAK 1 (KIRI): Gambar #}
+    <div class="product-image-box">
+      {% if node.field_product_image.entity %}
+        {% set img_url = file_url(node.field_product_image.entity.field_media_image.entity.uri.value) %}
+        <img src="{{ img_url }}" alt="{{ label }}">
+      {% endif %}
+    </div>
+
+    {# KOTAK 2 (KANAN): Maklumat Produk #}
+    <div class="product-info">
+
+      {# 1. Tajuk #}
+      <h1 class="product-title">{{ label }}</h1>
+
+      {# 2. Deskripsi #}
+      <div class="product-description">
+        {{ node.field_field_description.value|raw }}
+      </div>
+
+      {# 3. Harga #}
+      <div>
+        <span class="product-price-badge">
+          RM {{ node.field_price.value }}
+        </span>
+      </div>
+
+      {# 4. Product Details (Accordions) #}
+      <div class="product-accordion-list">
+        
+        {% if node.field_suitable_skin_type.value %}
+          <details class="product-accordion-item group">
+            <summary class="product-accordion-summary">
+              <span>Suitable Skin Type</span>
+              <span class="transition-transform duration-200 group-open:rotate-180 text-xs">▼</span>
+            </summary>
+            <div class="product-accordion-content">
+              {{ node.field_suitable_skin_type.value }}
+            </div>
+          </details>
+        {% endif %}
+
+        {% if node.field_ingredients_type.value %}
+          <details class="product-accordion-item group">
+            <summary class="product-accordion-summary">
+              <span>Ingredients Type</span>
+              <span class="transition-transform duration-200 group-open:rotate-180 text-xs">▼</span>
+            </summary>
+            <div class="product-accordion-content">
+              {{ node.field_ingredients_type.value|raw }}
+            </div>
+          </details>
+        {% endif %}
+
+        {% if node.field_product_accordion.value %}
+          <details class="product-accordion-item group">
+            <summary class="product-accordion-summary">
+              <span>Product Details</span>
+              <span class="transition-transform duration-200 group-open:rotate-180 text-xs">▼</span>
+            </summary>
+            <div class="product-accordion-content">
+              {{ node.field_product_accordion.value|raw }}
+            </div>
+          </details>
+        {% endif %}
+
+      </div>
+
+      {# 5. Butang Action #}
+      <div class="product-actions">
+        <button type="button" class="btn-cart">Add to Cart</button>
+        <button type="button" class="btn-buy">Buy Now</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</article>

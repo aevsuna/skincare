@@ -1,0 +1,39 @@
+{{ attach_library('skincare_custom/article-styling') }}
+
+<article{{ attributes.addClass('article-container', 'max-w-3xl', 'mx-auto', 'px-6', 'py-10') }}>
+
+  {# 1. Header Artikel: Kategori & Tajuk Utama Bold (Guna <div>, elakkan tag <header>) #}
+  <div class="article-header text-left mb-6">
+    {% if content.field_references|render|trim %}
+      <div class="article-category mb-2 text-xs font-bold uppercase tracking-widest text-pink-600">
+        {{ content.field_references|render|striptags }}
+      </div>
+    {% endif %}
+
+    {% if label %}
+      <h1 class="article-title">
+        {{ label }}
+      </h1>
+    {% endif %}
+  </div>
+
+  {# 2. Gambar Hero Landscape #}
+  {% if content.field_picture %}
+    <div class="article-image-wrapper mb-10">
+      {{ content.field_picture }}
+    </div>
+  {% endif %}
+
+  {# 3. Teks Body #}
+  {% if content.field_body %}
+    <div class="article-body text-gray-700 leading-relaxed">
+      {{ content.field_body }}
+    </div>
+  {% endif %}
+
+  {# 4. Baki Field #}
+  <div class="article-extra mt-8">
+    {{ content|without('field_picture', 'field_references', 'field_body') }}
+  </div>
+
+</article>

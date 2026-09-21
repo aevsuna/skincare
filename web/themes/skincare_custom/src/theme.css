@@ -1,0 +1,139 @@
+/**
+ * @file theme.css
+ * Global theme stylesheet (Cleaned version).
+ */
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.13 0.043 265.132);
+  --card: oklch(0.967 0.003 264.542);
+  --card-foreground: oklch(0.21 0.032 264.665);
+  --primary: oklch(0.547 0.246 262.866);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.9219 0 0);
+  --secondary-foreground: oklch(0.28 0.041 260.329);
+  --muted: oklch(0.967 0.003 264.542);
+  --muted-foreground: oklch(0.13 0.043 265.132);
+  --accent: oklch(0.932 0.032 255.585);
+  --accent-foreground: var(--foreground);
+  --destructive: oklch(0.6368 0.2078 25.3313);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.872 0.009 258.338);
+  --input: oklch(0.872 0.009 258.338);
+  --font-sans: "Outfit", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: "Fira Mono", "Menlo", "Consolas", "Liberation Mono", monospace;
+  --font-body: "Inter", Arial, Helvetica, sans-serif;
+  --radius: 0.5rem;
+  --spacing: 0.25rem;
+  --navbar-height: calc(var(--spacing) * 15);
+
+  @media (min-width: 768px) {
+    --navbar-height: calc(var(--spacing) * 18);
+  }
+}
+
+.dark {
+  --background: oklch(0.13 0.043 265.132);
+  --foreground: oklch(1 0 89.876);
+  --card: oklch(0.208 0.042 266.359);
+  --card-foreground: var(--foreground);
+  --primary: oklch(0.547 0.246 262.866);
+  --primary-foreground: var(--foreground);
+  --secondary: oklch(0.704 0.04 256.993);
+  --secondary-foreground: oklch(0.13 0.043 265.132);
+  --muted: oklch(0.28 0.041 260.329);
+  --muted-foreground: oklch(0.967 0.003 264.542);
+  --accent: oklch(0.932 0.032 255.585);
+  --accent-foreground: oklch(0.13 0.043 265.132);
+  --destructive: oklch(0.6368 0.2078 25.3313);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.373 0.031 259.733);
+  --input: oklch(0.373 0.031 259.733);
+}
+
+/* ==========================================
+   1. HEADER & NAVIGATION ALIGNMENT
+   ========================================== */
+header,
+.region-header,
+.layout-container > header {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 1rem 2rem !important;
+  background-color: #ffffff !important;
+}
+
+/* Sembunyikan tajuk blok menu yang tidak diperlukan */
+.region-header .block-menu h2,
+.region-header h2.block-title,
+.region-header #block-mainnavigation-menu h2 {
+  display: none !important;
+}
+
+/* PAKSA LOGO BERADA DI SEBELAH KIRI (ORDER 1) */
+.region-header .block-system-branding-block,
+.region-header .site-branding,
+.region-header [id*="branding"],
+.region-header [id*="logo"],
+header img[src*="logo"],
+header svg {
+  order: 1 !important;
+  margin-right: auto !important;
+  margin-left: 0 !important;
+}
+
+/* PAKSA MENU BERADA DI SEBELAH KANAN (ORDER 2) */
+.region-header .block-menu,
+.region-header nav {
+  order: 2 !important;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+
+header nav ul, 
+.coh-menu-list, 
+.region-header ul,
+.l-header ul {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 28px !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+header nav li, 
+.coh-menu-list li, 
+.region-header li {
+  display: inline-block !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+}
+
+header a,
+.region-header a,
+header nav ul li a {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 0.95rem !important;
+  color: #111827 !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+}
+
+header a:hover,
+.region-header a:hover {
+  color: #2563eb !important;
+}
+
+.node__submitted {
+  display: none !important;
+}
